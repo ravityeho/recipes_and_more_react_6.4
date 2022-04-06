@@ -63,6 +63,7 @@ export class RecipeReviews extends React.Component {
             <>
                 <Container>
                     {reviews}
+                    {/* <NewReview recipe_id={this.props.recipe_id}/> */}
                 </Container>
             </>
         )

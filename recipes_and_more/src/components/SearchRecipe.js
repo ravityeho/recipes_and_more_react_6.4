@@ -39,7 +39,7 @@ export class SearchRecipe extends React.Component {
             axios.get('http://127.0.0.1:8000/recipe_search_by_category/' + this.state.value)
             .then(response => {
                 console.log(response)
-                this.setState({RecipesByCategory: [response.data]})
+                this.setState({RecipesByCategory: response.data})
                 console.log(this.state.RecipesByCategory)
 
             })
@@ -56,7 +56,7 @@ export class SearchRecipe extends React.Component {
         recipes_by_category => {
             return(
                 
-            <ListGroup.Item key={recipes_by_category.id}>
+            <ListGroup.Item key={recipes_by_category.recipe_id}>
                 <Card style={{ width: '25rem' }} className="text-center" >
                 <Card.Img variant="top" src={recipes_by_category.recipe_url} />
                 <Card.Body>
@@ -64,8 +64,7 @@ export class SearchRecipe extends React.Component {
                     <Card.Text>
                         For more details:
                     </Card.Text>
-                <a href={'http://127.0.0.1:8000/full_recipe_by_id/' + recipes_by_category.recipe_id}>Full Recipe</a>
-                {/* <Button onClick={() => this.fullRecipe(recipes_by_category.recipe_id)} variant="primary">Full Recipe</Button>  */}
+                <a href={'http://localhost:3000/fullrecipe/' + recipes_by_category.recipe_id}>Full Recipe</a>
                 </Card.Body>
                 </Card>
             </ListGroup.Item>                
@@ -82,13 +81,13 @@ export class SearchRecipe extends React.Component {
                     <h3 style={{ color: 'navy'}}>Search By Category:</h3>
                     <select value={this.state.value} onChange={this.handleChange}>
                       <option value=""></option>
-                      <option value="bread_and_dough">Bread and Dough</option>
-                      <option value="cakes">Cakes</option>
-                      <option value="cookies_and_biscuits">Cookies and Biscuits</option>
-                      <option value="cupcakes_and_muffins">Cupcakes and Muffins</option>
-                      <option value="desserts">DESSERTS</option>
-                      <option value="pancakes_and_crepes">Pancakes and Crepes</option>
-                      <option value="desserts_pies_and_tarts">Desserts Pies and Tarts</option>
+                      <option value="BREAD & DOUGH">Bread and Dough</option>
+                      <option value="CAKES">Cakes</option>
+                      <option value="COOKIES & BISCUITS">Cookies and Biscuits</option>
+                      <option value="CUPCAKES & MUFFINS">Cupcakes and Muffins</option>
+                      <option value="DESSERTS">Desserts</option>
+                      <option value="PANCAKES & CREPES">Pancakes and Crepes</option>
+                      <option value="DESSERTS, PIES & TARTS">Desserts Pies and Tarts</option>
                     </select>
                 </label>
                 <input type="submit" value="Submit" />
