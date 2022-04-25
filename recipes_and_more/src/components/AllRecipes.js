@@ -6,6 +6,9 @@ import Card from 'react-bootstrap/Card'
 import { PageFrame } from "./PageFrame";
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import CardGroup from 'react-bootstrap/CardGroup';
 import { Button, ListGroup } from 'react-bootstrap';
 import { FullRecipe } from './FullRecipe';
 
@@ -45,23 +48,36 @@ export class AllRecipes extends React.Component {
             recipe => {
                 return(
                     
-                <ListGroup.Item key={recipe.id}>
-                    <Card style={{ width: '25rem' }} className="text-center" >
-                    <Card.Img variant="top" src={recipe.pic_url} />
-                    <Card.Body>
-                        <Card.Title>{recipe.recipe_name}</Card.Title>
-                        <Card.Text>
-                        Difficulty Level: {recipe.difficulty_level}
-                        Preparation Time: {recipe.preparation_time} 
-                        Total Time: {recipe.total_time}
-                        {recipe.recipe_description} <br></br>
-                        </Card.Text> 
-                        <div>
-                        <Button onClick={() => this.handleClick(recipe.id)} variant="primary">Full Recipe</Button>
-                        </div>
+                <ListGroup.Item  key={recipe.id}>
+                    
+                    <Card style={{ width: '40rem' }} className="text-center" >
+
+                        <Card.Header as="h3" className="text-center">{recipe.recipe_name}</Card.Header>
                         
-                    </Card.Body>
+                        <Card.Img variant="top" src={recipe.pic_url} />
+                        
+                        <Card.Body>
+
+                            {/* <Card.Title>{recipe.recipe_name}</Card.Title> */}
+                            <Card.Subtitle >
+                                <span className="lh-lg" style={{ color: 'cadetblue' }}>
+                                Difficulty Level: {''}{recipe.difficulty_level}<br></br>
+                                Preparation Time: {''}{recipe.preparation_time} min<br></br>
+                                Total Time: {''}{recipe.total_time} min<br></br>
+                                </span>
+                            </Card.Subtitle>
+                            <Card.Text>
+                                <span className="text-center" style={{ color: 'dimgray', backgroundColor: "linen", }}>
+                                    {recipe.recipe_description}</span>
+                            </Card.Text> 
+                            <div>
+                            <Button onClick={() => this.handleClick(recipe.id)} variant="outline-secondary">Full Recipe</Button>
+                            </div>
+                            
+                        </Card.Body>
+                    
                     </Card>
+                
                 </ListGroup.Item>
                                  
                 )
@@ -71,10 +87,24 @@ export class AllRecipes extends React.Component {
         return(
             <>
                 <PageFrame />
-                <Container>
-                    {all_recipes}
+                <Container 
+                style={{ maxWidth: '100%',
+                        paddingLeft: 100,
+                        paddingRight: 500,
+                        paddingTop: 30,
+                        paddingBottom: 30,
+                }}>
+                        <Col md={{ span: 12, offset: 3 }}>
+                        {all_recipes}
+                        </Col>  
                 </Container>
             </>
         )
     }
 }
+
+// width: "100%", maxWidth: '100%'
+//                                     paddingLeft: 100,
+//                                     paddingRight: 200,
+//                                     paddingTop: 30,
+//                                     paddingBottom: 30,

@@ -1,8 +1,9 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Container from 'react-bootstrap/Container';
 
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image'
 // import axios from 'axios'
 
 export class PageFrame extends React.Component {
@@ -20,17 +21,23 @@ export class PageFrame extends React.Component {
 
 render() {
     return(
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">Main</Navbar.Brand>
-          <Navbar.Toggle />
-          <Nav.Link href="/allrecipes">All Recipes</Nav.Link>
-          <Nav.Link href="/searchrecipe">Search</Nav.Link>
-          {/* <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text>
-              Signed in as: <a href="#login">{this.state.first_name + ' ' + this.state.last_name}</a>
-            </Navbar.Text>
-          </Navbar.Collapse> */}
-      </Navbar>
+        <>
+        <Navbar expand="lg" bg="light" variant="light" >
+          <Navbar.Brand href="/">
+            <img
+            alt="logo"
+            src={require('./logo2.jpg')}
+            height="35"
+            className="d-inline-block align-top"
+          />{' '}
+            Recipes & More
+          </Navbar.Brand>
+            <Nav className="me-auto">
+              <Nav.Link href="/allrecipes">All Recipes</Nav.Link>
+              <Nav.Link href="/searchrecipe">Search</Nav.Link>
+            </Nav>
+        </Navbar>
+      </>
     )
 }
 }

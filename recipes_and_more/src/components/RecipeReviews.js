@@ -36,36 +36,36 @@ export class RecipeReviews extends React.Component {
 
 
     render() { 
-        
         const reviews = this.state.reviews.map(
             reviews_by_id => {
                 return(
-                <ListGroup.Item key={reviews_by_id.id}>
-                    <Card style={{ width: '25rem' }} className="text-center" >
-                    <Card.Body>
-                        <Card.Title>{reviews_by_id.review_title}</Card.Title>
-                        <Card.Text>
-                            review_content : <br></br>
-                            {reviews_by_id.review_content}<br></br>
-                            review_date:<br></br>
-                            {reviews_by_id.review_date}<br></br>
-                            review_grade: <br></br>
-                            {reviews_by_id.review_grade}<br></br>
-                        </Card.Text>
-                    </Card.Body>
-                    </Card>
-                </ListGroup.Item>                
+                    <ListGroup.Item key={reviews_by_id.id}>
+
+                        <Card style={{ width: '40rem' }} className="text-center" >
+                        
+                        <Card.Body>
+                        <span className="fw-light" style={{ color: "darkgray"}}>{reviews_by_id.review_date}</span>
+                            
+                            <Card.Title>{reviews_by_id.review_title}</Card.Title>
+                            
+                            <Card.Text>
+                                <span className="star" style={{ color: "gold" }}>{reviews_by_id.review_grade} &#9733;</span>
+                                <br></br>"{reviews_by_id.review_content}"<br></br>
+                            </Card.Text>
+
+                        </Card.Body>
+
+                        </Card>
+
+                    </ListGroup.Item>                
                 )
             }   
         )
 
         return(
-            <>
-                <Container>
+            <ListGroup>
                     {reviews}
-                    {/* <NewReview recipe_id={this.props.recipe_id}/> */}
-                </Container>
-            </>
+            </ListGroup>
         )
     }
 }
