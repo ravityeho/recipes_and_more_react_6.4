@@ -11,6 +11,7 @@ import { AllRecipes } from "./components/AllRecipes";
 import { SearchRecipe } from './components/SearchRecipe';
 import { FullRecipe, WrappedFullRecipe } from './components/FullRecipe';
 import { MainPage } from './components/MainPage';
+import { DrinksRecipes } from './components/DrinksRecipes';
 
 
 export class App extends React.Component {
@@ -22,6 +23,7 @@ export class App extends React.Component {
       <Route path="/fullrecipe/:recipe_id" element={<WrappedFullRecipe />} />
       <Route path="/searchrecipe" element={<SearchRecipe />} />
       <Route path="/RecipeReviews/:recipe_id" element={<WrappedFullRecipe />} />
+      <Route path="/drinks_recipes" element={<DrinksRecipes />} />
       {/* <Route path="/login" element={<WrappedLoginScreen />} /> */}
     </Routes>
     )

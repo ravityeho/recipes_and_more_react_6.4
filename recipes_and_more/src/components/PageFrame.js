@@ -33,8 +33,9 @@ render() {
             Recipes & More
           </Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/allrecipes">All Recipes</Nav.Link>
-              <Nav.Link href="/searchrecipe">Search</Nav.Link>
+              <Nav.Link href="/allrecipes">Dessert Recipes</Nav.Link>
+              <Nav.Link href="/searchrecipe">Search Dessert</Nav.Link>
+              <Nav.Link href="/drinks_recipes">Drinks Recipess</Nav.Link>
             </Nav>
         </Navbar>
       </>
